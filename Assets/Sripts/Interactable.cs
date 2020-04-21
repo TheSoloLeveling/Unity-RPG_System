@@ -5,6 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public float radius = 3f;
+    //public Transform interactionTransform;
 
     private bool isFocus = false;
     Transform player;
@@ -22,7 +23,7 @@ public class Interactable : MonoBehaviour
 
         if (isFocus && !hasInteracted)
         {
-            float distance = Vector3.Distance(player.position, transform.position);
+            float distance = Vector3.Distance(player.position, transform.position);  //interationTransform.position
             if (distance <= radius)
             {
                 Interact();
