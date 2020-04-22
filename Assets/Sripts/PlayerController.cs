@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Camera cam;
-    private Animator anim;
+   
 
     public Interactable focus;
 
@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         cam = Camera.main;
         motor = GetComponent<PlayerMotor>();
-        anim = GetComponent<Animator>();
+        
 
     }
 
