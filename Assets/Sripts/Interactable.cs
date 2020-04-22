@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour
 
     private bool hasInteracted = false;
    
-    public virtual void Interact ()
+    public virtual void Interact ()   // this virtual function its need to be ovridden
     {
         Debug.Log("Interacting with" + transform.name);
     }
