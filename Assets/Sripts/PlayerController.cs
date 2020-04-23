@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour
@@ -20,9 +21,14 @@ public class PlayerController : MonoBehaviour
     }
 
     
-    void FixedUpdate()
+    void Update()
     {
-        
+       
+        if (EventSystem.current.IsPointerOverGameObject())  // accessing the curent event system if its hovering over UI
+        {
+            return;
+        }
+
 
         if (Input.GetMouseButtonDown(0))
         {
