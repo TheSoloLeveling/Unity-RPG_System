@@ -14,7 +14,9 @@ public class EquipmentManager : MonoBehaviour
     }
     #endregion
 
+    public SkinnedMeshRenderer targetMesh;
     Equipment[] currentEquipment;
+    SkinnedMeshRenderer[] currentMeshes;
 
     public delegate void OnEquipmentChanged(Equipment newItem, Equipment oldItem);
     public OnEquipmentChanged onEquipmentChanged;
@@ -26,7 +28,9 @@ public class EquipmentManager : MonoBehaviour
         inventory = Inventory.instance;
 
         int numSlots = System.Enum.GetNames(typeof(Equipment.EquipmentSlot)).Length;   // get the amount of elements in an enum
+
         currentEquipment = new Equipment[numSlots];
+        currentMeshes = new SkinnedMeshRenderer[numSlots];
     }
 
     public void Equip (Equipment newItem)
@@ -46,6 +50,12 @@ public class EquipmentManager : MonoBehaviour
         }
 
         currentEquipment[slotIndex] = newItem;
+        SkinnedMeshRenderer newMesh = Instantiate<SkinnedMeshRenderer>(newItem.mesh);
+        newMesh.transform.parent = targetMesh.transform;
+
+        newMesh.bones = targetMesh.bones;
+        newMesh.rootBone = targetMesh.rootBone;
+        currentMeshes[slotIndex] = newMesh;
         
     }
 
@@ -53,6 +63,10 @@ public class EquipmentManager : MonoBehaviour
     {
         if (currentEquipment[slotIndex] != null )
         {
+            if (currentMeshes[slotIndex] != null)
+            {
+                Destroy(currentMeshes[slotIndex]);
+            }
             Equipment oldItem = currentEquipment[slotIndex];
             inventory.AddItem(oldItem);
 
