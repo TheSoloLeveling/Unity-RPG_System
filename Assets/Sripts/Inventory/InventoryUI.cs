@@ -6,10 +6,12 @@ public class InventoryUI : MonoBehaviour
 {
     public Transform itemsParent;
     public GameObject inventoryUI;
+    public GameObject GameUI;
 
 
     Inventory inventory;
     InventorySlot[] slots;
+    
     void Start()
     {
         inventory = Inventory.instance;
@@ -41,4 +43,7 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+
+
+
 }
