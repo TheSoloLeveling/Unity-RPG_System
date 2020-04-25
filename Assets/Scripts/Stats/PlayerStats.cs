@@ -11,12 +11,8 @@ public class PlayerStats : CharacterStats
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+   
+ 
     void OnEquipmentChanged(Equipment newItem, Equipment olditem)
     {
         if (newItem != null)
