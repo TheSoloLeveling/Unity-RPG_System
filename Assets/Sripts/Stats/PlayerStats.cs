@@ -19,6 +19,17 @@ public class PlayerStats : CharacterStats
 
     void OnEquipmentChanged(Equipment newItem, Equipment olditem)
     {
+        if (newItem != null)
+        {
+            armor.AddModifier(newItem.armorModifier);
+            damage.AddModifier(newItem.damageModifier);
+        }
+     
 
+        if (olditem != null)
+        {
+            armor.RemoveModififer(olditem.armorModifier);
+            damage.RemoveModififer(olditem.damageModifier);
+        }
     }
 }
