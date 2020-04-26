@@ -11,8 +11,7 @@ public class PlayerStats : CharacterStats
         
     }
 
-   
- 
+  
     void OnEquipmentChanged(Equipment newItem, Equipment olditem)
     {
         if (newItem != null)
@@ -27,5 +26,11 @@ public class PlayerStats : CharacterStats
             armor.RemoveModififer(olditem.armorModifier);
             damage.RemoveModififer(olditem.damageModifier);
         }
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        PlayerManager.instance.KillPlayer();
     }
 }

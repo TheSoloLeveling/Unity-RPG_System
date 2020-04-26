@@ -5,12 +5,26 @@ using UnityEngine.AI;
 
 public class PlayerAnimator : MonoBehaviour
 {
+
+    #region Singleton
+
+    public static PlayerAnimator instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
     private NavMeshAgent agent;
     private Animator anim;
+
+   
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -19,5 +33,11 @@ public class PlayerAnimator : MonoBehaviour
         float speed = agent.velocity.magnitude / agent.speed;
         anim.SetFloat("Speed", speed, 0.1f, Time.deltaTime);
 
+    }
+
+    public void AttackAnimation()
+    {
+        anim.SetBool("IsAttacking", true);
+        
     }
 }

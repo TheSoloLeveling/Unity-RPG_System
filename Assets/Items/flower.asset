@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49325053e5ad60c47bdf8a26b8f4aadc, type: 3}
-  m_Name: Shield
+  m_Name: flower
   m_EditorClassIdentifier: 
-  itemName: New item
-  icon: {fileID: 21300062, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
+  itemName: flower
+  icon: {fileID: 21300098, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
   isDefaultItem: 0
-  equipmentSlot: 4
-  mesh: {fileID: 5230559322514433550, guid: 8d1605bc9f8ae8a418bb24b87ab8f928, type: 3}
-  armorModifier: 4
-  damageModifier: 5
+  equipmentSlot: 3
+  mesh: {fileID: 8044332436759285276, guid: e1f41d69061c16f46bc364df2195b10f, type: 3}
+  armorModifier: 10
+  damageModifier: 10

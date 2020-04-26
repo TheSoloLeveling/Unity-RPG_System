@@ -14,7 +14,7 @@ public class Interactable : MonoBehaviour
    
     public virtual void Interact ()   // this virtual function its need to be ovridden
     {
-        Debug.Log("Interacting with" + transform.name);
+        
     }
 
     // Update is called once per frame

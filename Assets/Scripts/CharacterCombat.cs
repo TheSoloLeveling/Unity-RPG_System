@@ -8,6 +8,9 @@ public class CharacterCombat : MonoBehaviour
     public float attakSpeed = 1f;
     private float attackCooldown = 0f;
 
+    public float attackDelay = 0.6f;
+   
+
     CharacterStats myStats;
 
     private void Start()
@@ -24,9 +27,16 @@ public class CharacterCombat : MonoBehaviour
     {
         if (attackCooldown <= 0f)
         {
-            targetStats.TakeDamage(myStats.damage.GetValue());
+            StartCoroutine(DoDamage(targetStats, attackDelay));
+             PlayerAnimator.instance.AttackAnimation();
             attackCooldown = 1f / attakSpeed;
         }
         
+    }
+
+    IEnumerator DoDamage (CharacterStats stats, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        stats.TakeDamage(myStats.damage.GetValue());
     }
 }
