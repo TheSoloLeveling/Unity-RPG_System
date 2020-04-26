@@ -37,7 +37,13 @@ public class PlayerAnimator : MonoBehaviour
 
     public void AttackAnimation()
     {
-        anim.SetBool("IsAttacking", true);
+        anim.SetTrigger("Attack");
+        
+    }
+
+    public void DeathAnimation()
+    {
+        anim.SetBool("isDead", true);
         
     }
 }

@@ -21,6 +21,7 @@ public class CharacterCombat : MonoBehaviour
     private void Update()
     {
         attackCooldown -= Time.deltaTime;
+        
     }
 
     public void Attack (CharacterStats targetStats)
@@ -28,12 +29,12 @@ public class CharacterCombat : MonoBehaviour
         if (attackCooldown <= 0f)
         {
             StartCoroutine(DoDamage(targetStats, attackDelay));
-             PlayerAnimator.instance.AttackAnimation();
             attackCooldown = 1f / attakSpeed;
         }
         
     }
 
+    
     IEnumerator DoDamage (CharacterStats stats, float delay)
     {
         yield return new WaitForSeconds(delay);

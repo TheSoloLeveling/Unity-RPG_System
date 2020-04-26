@@ -6,6 +6,17 @@ using UnityEngine.AI;
 public class EnemyAnimator : MonoBehaviour
 {
 
+    #region Singleton
+
+    public static EnemyAnimator instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+    #endregion
+
+
     private NavMeshAgent agent;
     private Animator anim;
 
@@ -23,6 +34,11 @@ public class EnemyAnimator : MonoBehaviour
     {
         float speed = agent.velocity.magnitude / agent.speed;
         anim.SetFloat("Speed", speed, 0.1f, Time.deltaTime);
+    }
+
+    public void DeathAnimation()
+    {
+        anim.SetBool("isDead", true);
     }
 
    

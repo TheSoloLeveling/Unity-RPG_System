@@ -2,22 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.AI;
+
 
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour
 {
+    
+
     private Camera cam;
    
 
     public Interactable focus;
 
+   
     PlayerMotor motor;
     void Start()
     {
         cam = Camera.main;
         motor = GetComponent<PlayerMotor>();
-        
 
+       
     }
 
     
