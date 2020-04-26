@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour
                     combat.Attack(targetStats);
                 }
                 FaceTarget();
-                PlayerAnimator.instance.AttackAnimation();
+                
             }
         }
     }
