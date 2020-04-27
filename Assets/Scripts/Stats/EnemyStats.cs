@@ -14,14 +14,14 @@ public class EnemyStats : CharacterStats
     public override void Die()
     {
         base.Die();
+        EnemyAnimator.instance.DeathAnimation();
+        agent.speed = 0;
         StartCoroutine(DoDie());
         
     }
 
     IEnumerator DoDie()
     {
-        EnemyAnimator.instance.DeathAnimation();
-        agent.speed = 0;
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }

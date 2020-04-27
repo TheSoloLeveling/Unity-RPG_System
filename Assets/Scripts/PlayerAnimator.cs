@@ -20,8 +20,6 @@ public class PlayerAnimator : MonoBehaviour
     public AnimationClip[] defaulAttackAnimSet;
     private AnimationClip[] currentAttackAnimSet;
 
-    const float locomationAnmationSmoothTime = 0.1f;
-
     private NavMeshAgent agent;
     private Animator anim;
     private CharacterCombat combat;

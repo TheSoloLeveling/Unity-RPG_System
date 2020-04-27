@@ -10003,7 +10003,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPrefab: {fileID: 6758521821110441278, guid: ccc08e4796298bc4f83956e7baeeb415,
     type: 3}
-  target: {fileID: 0}
+  target: {fileID: 2101553342}
 --- !u!114 &1457474308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10016,6 +10016,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32e01ef0cae8b14db0bac4f289515be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  replaceableAttackAnim: {fileID: 7400000, guid: cff0a5804d97a2f4dad9cb8818a2dc66,
+    type: 3}
+  defaulAttackAnimSet:
+  - {fileID: 7400000, guid: cff0a5804d97a2f4dad9cb8818a2dc66, type: 3}
+  - {fileID: 7400000, guid: 96ea431973b871c4995f0ba8c5c1e15c, type: 3}
+  - {fileID: 7400000, guid: 2decfbd282a88ec46b0d0c4aa37b96fc, type: 3}
 --- !u!114 &1457474309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16710,7 +16716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2101553342}
   m_Layer: 0
-  m_Name: Healthbar Target
+  m_Name: Healthbar TArget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16724,7 +16730,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101553341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.018, y: 1.975, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1457474306}
