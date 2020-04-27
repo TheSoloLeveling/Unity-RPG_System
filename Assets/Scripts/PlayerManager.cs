@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
 
     
+    
 
     private void Awake()
     {
@@ -22,6 +23,8 @@ public class PlayerManager : MonoBehaviour
     {
         
     }
+
+   
 
     public GameObject player;
     
@@ -40,6 +43,8 @@ public class PlayerManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        
         
     }
 }

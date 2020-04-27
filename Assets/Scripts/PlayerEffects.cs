@@ -4,40 +4,24 @@ using UnityEngine;
 
 public class PlayerEffects : MonoBehaviour
 {
-    [SerializeField] ParticleSystem collectParticle = null;
-    
+
+    [SerializeField] ParticleSystem collectParticleRestart = null;
 
     private void Start()
     {
-        collectParticle.Stop();
-        collectParticle.gameObject.SetActive(false);
+        
     }
 
-    
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (  Time.timeSinceLevelLoad == 0)
         {
-            Collect();
+            ParticleSystem particleClone = Instantiate(collectParticleRestart, transform);
+           
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            DisableAll();
-        }
     }
 
-    public void Collect()
-    {
-        collectParticle.Play();
-        collectParticle.gameObject.SetActive(true);
-    }
 
-    public void DisableAll()
-    {
-        collectParticle.Stop();
-        collectParticle.gameObject.SetActive(false);
-    }
 
-    
 }
