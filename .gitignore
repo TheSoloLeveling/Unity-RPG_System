@@ -11,8 +11,11 @@
 [Mm]emoryCaptures/
 RPGPP_LT/
 AllStarCharacterLibrary/
-Japanese Mask/
+
 Fantasy Forest Environment Free Sample/
+GreenForest/
+JMO Assets/
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
