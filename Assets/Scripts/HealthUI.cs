@@ -1,12 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CharacterStats))]
 public class HealthUI : MonoBehaviour
 {
     public GameObject uiPrefab;
     public Transform target;
+
+    private float visibleTime = 5f;
+    private float lastMadeVisibleTime;
 
     Transform ui;
     Image healthSlider;
@@ -21,15 +26,46 @@ public class HealthUI : MonoBehaviour
             if (c.renderMode == RenderMode.WorldSpace)
             {
                 ui = Instantiate(uiPrefab, c.transform).transform;
+                healthSlider = ui.GetChild(0).GetComponent<Image>();
+                ui.gameObject.SetActive(false);
                 break;
             }
         }
+
+        GetComponent<CharacterStats>().OnHealthChanged += OnHealthChanged;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        ui.position = target.position;
-        ui.forward = -cam.forward;
+        if (ui != null)
+        {
+            ui.position = target.position;
+            ui.forward = -cam.forward;
+
+            if (Time.time - lastMadeVisibleTime > visibleTime)
+            {
+                ui.gameObject.SetActive(false);
+            }
+        }
+       
+    }
+
+    public void OnHealthChanged(int maxHealth, int currentHealth)
+    {
+        if (ui != null)
+        {
+            ui.gameObject.SetActive(true);
+            lastMadeVisibleTime = Time.time;
+
+            float healthPercent = currentHealth / (float)maxHealth;
+            healthSlider.fillAmount = healthPercent;
+
+            if (currentHealth <= 0)
+            {
+                Destroy(ui.gameObject);
+            }
+        }
+       
     }
 }
